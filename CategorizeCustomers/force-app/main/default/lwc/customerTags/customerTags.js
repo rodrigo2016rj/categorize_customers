@@ -252,14 +252,14 @@ export default class AccountsList extends NavigationMixin(LightningElement){
             }
             
             account.tags = [];
-            if(accounts[i].CustomerTagsList__r){
-              const tags = accounts[i].CustomerTagsList__r;
+            if(accounts[i].rodrigo__CustomerTagsList__r){
+              const tags = accounts[i].rodrigo__CustomerTagsList__r;
               for(let j = 0; j < tags.length; j++){
-                if(tags[j].CustomerTag__r){
+                if(tags[j].rodrigo__CustomerTag__r){
                   let tag = new Object();
-                  tag.id = tags[j].CustomerTag__r.Id;
-                  tag.name = tags[j].CustomerTag__r.Name;
-                  tag.color = tags[j].CustomerTag__r.Color__c;
+                  tag.id = tags[j].rodrigo__CustomerTag__r.Id;
+                  tag.name = tags[j].rodrigo__CustomerTag__r.Name;
+                  tag.color = tags[j].rodrigo__CustomerTag__r.rodrigo__Color__c;
                   account.tags.push(tag);
                 }
               }
@@ -460,7 +460,7 @@ export default class AccountsList extends NavigationMixin(LightningElement){
         
         tag.id = tags[i].Id;
         tag.name = tags[i].Name;
-        tag.color = tags[i].Color__c;
+        tag.color = tags[i].rodrigo__Color__c;
         
         this.tags.push(tag);
       }
@@ -556,7 +556,7 @@ export default class AccountsList extends NavigationMixin(LightningElement){
         
         tag.id = tags[i].Id;
         tag.name = tags[i].Name;
-        tag.color = tags[i].Color__c;
+        tag.color = tags[i].rodrigo__Color__c;
         
         this.tags_in_popup.push(tag);
       }

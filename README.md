@@ -48,10 +48,10 @@ https://developer.salesforce.com/tools/salesforcecli</p>
 
 <p>Execute os comandos abaixo para deixar apenas com as contas (accounts) de teste:</p>
 <ul>
-<li>sf apex run --file "Deletar Entitlements e Accounts.apex" -o rds_scratch_org</li>
-<li>sf apex run --file "Inserir Usuários Fictícios.apex" -o rds_scratch_org</li>
-<li>sf apex run --file "Inserir Contas Fictícias - Parte 01.apex" -o rds_scratch_org</li>
-<li>sf apex run --file "Inserir Contas Fictícias - Parte 02.apex" -o rds_scratch_org</li>
+<li>sf apex run --file "Deletar Entitlements e Accounts.apex" -o scratch_org</li>
+<li>sf apex run --file "Inserir Usuários Fictícios.apex" -o scratch_org</li>
+<li>sf apex run --file "Inserir Contas Fictícias - Parte 01.apex" -o scratch_org</li>
+<li>sf apex run --file "Inserir Contas Fictícias - Parte 02.apex" -o scratch_org</li>
 </ul>
 
 <br/>

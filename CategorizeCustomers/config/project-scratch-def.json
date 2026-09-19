@@ -1,5 +1,6 @@
 {
   "orgName": "Rodrigo Diniz da Silva",
+  "namespace": "rodrigo",
   "edition": "Enterprise",
   "features": ["EnableSetPasswordInApi"],
   "settings": {
