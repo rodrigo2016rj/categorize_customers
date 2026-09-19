@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://sforce.com">
+  <hasActivationRequired>false</hasActivationRequired>
+  <label>Categorize Customers Permission Set</label>
+  <description>All permissions required by the Categorize Customers app.</description>
+  
+  <applicationVisibilities>
+    <application>CategorizeCustomers</application>
+    <visible>true</visible>
+  </applicationVisibilities>
+  
+  <tabSettings>
+    <tab>CustomerTags</tab>
+    <visibility>Visible</visibility>
+  </tabSettings>
+  
+  <fieldPermissions>
+    <editable>false</editable>
+    <field>Account.Rating</field>
+    <readable>true</readable>
+  </fieldPermissions>
+  
+  <fieldPermissions>
+    <editable>false</editable>
+    <field>Account.Industry_Text__c</field>
+    <readable>true</readable>
+  </fieldPermissions>
+  
+  <fieldPermissions>
+    <editable>false</editable>
+    <field>Account.Rating_Text__c</field>
+    <readable>true</readable>
+  </fieldPermissions>
+  
+  <fieldPermissions>
+    <editable>false</editable>
+    <field>Account.Type_Text__c</field>
+    <readable>true</readable>
+  </fieldPermissions>
+</PermissionSet>

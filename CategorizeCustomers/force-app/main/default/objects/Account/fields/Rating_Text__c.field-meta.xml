@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://sforce.com">
+  <fullName>Rating_Text__c</fullName>
+  <label>Rating as Text</label>
+  <description>Rating field used as text to enable alphabetical ordering.</description>
+  <required>false</required>
+  <trackTrending>false</trackTrending>
+  <type>Text</type>
+  <formula>TEXT(Rating)</formula>
+  <unique>false</unique>
+</CustomField>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject>
+  <pluralLabel>Customer Tags</pluralLabel>
+  <fullName>CustomerTag__c</fullName>
+  <description>Stores customer tags to improve searchability and organization.</description>
+  <nameField>
+    <label>Customer Tag Name</label>
+    <type>Text</type>
+  </nameField>
+  <enableBulkApi>true</enableBulkApi>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <enableHistory>true</enableHistory>
+  <enableActivities>true</enableActivities>
+  <enableSearch>true</enableSearch>
+  <enableFeeds>true</enableFeeds>
+  <enableReports>true</enableReports>
+  <sharingModel>ReadWrite</sharingModel>
+  <label>Customer Tag</label>
+  <deploymentStatus>Deployed</deploymentStatus>
+</CustomObject>

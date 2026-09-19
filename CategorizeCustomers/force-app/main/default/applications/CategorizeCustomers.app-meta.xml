@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://sforce.com">
+  <label>Categorize Customers</label> 
+  <description>Organize your customers however you like using tags you create.</description>
+  <formFactors>Large</formFactors>
+  <formFactors>Small</formFactors>
+  <navType>Standard</navType>
+  <tabs>CustomerTags</tabs>
+  <uiType>Lightning</uiType>
+</CustomApplication>

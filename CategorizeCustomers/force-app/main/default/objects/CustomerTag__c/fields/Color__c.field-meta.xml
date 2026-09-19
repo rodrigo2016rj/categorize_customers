@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField>
+  <fullName>Color__c</fullName>
+  <type>Picklist</type>
+  <inlineHelpText>Tag color</inlineHelpText>
+  <required>true</required>
+  <description>Base color for the text and for the tag border.</description>
+  <label>Color</label>
+  <valueSet>
+    <valueSetDefinition>
+      <value>
+        <fullName>black</fullName>
+        <label>Black</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>blue</fullName>
+        <label>Blue</label>
+        <default>true</default>
+      </value>
+      <value>
+        <fullName>dark_blue</fullName>
+        <label>Dark Blue</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>slate_blue</fullName>
+        <label>Slate Blue</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>dark_slate_blue</fullName>
+        <label>Dark Slate Blue</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>brown</fullName>
+        <label>Brown</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>dark_brown</fullName>
+        <label>Dark Brown</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>dark_slate_gray</fullName>
+        <label>Dark Slate Gray</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>green</fullName>
+        <label>Green</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>dark_green</fullName>
+        <label>Dark Green</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>magenta</fullName>
+        <label>Magenta</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>orange</fullName>
+        <label>Orange</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>pink</fullName>
+        <label>Pink</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>purple</fullName>
+        <label>Purple</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>dark_purple</fullName>
+        <label>Dark Purple</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>red</fullName>
+        <label>Red</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>dark_red</fullName>
+        <label>Dark Red</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>turquoise</fullName>
+        <label>Turquoise</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>dark_turquoise</fullName>
+        <label>Dark Turquoise</label>
+        <default>false</default>
+      </value>
+      <value>
+        <fullName>dark_yellow</fullName>
+        <label>Dark Yellow</label>
+        <default>false</default>
+      </value>
+      <sorted>false</sorted>
+    </valueSetDefinition>
+  </valueSet>
+  <securityClassification>Public</securityClassification>
+</CustomField>

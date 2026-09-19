@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject>
+  <pluralLabel>Customer Tag Assignments</pluralLabel>
+  <fullName>CustomerTagAssignment__c</fullName>
+  <description>Junction object used to create a many-to-many relationship between Account and Customer Tag. It tracks which tags are assigned to each account. Deleting either the Account or the Customer Tag record will automatically cascade delete this junction record.</description>
+  <nameField>
+    <label>Assignment</label>
+    <type>AutoNumber</type>
+    <displayFormat>Assignment_{0000000}</displayFormat>
+  </nameField>
+  <enableBulkApi>true</enableBulkApi>
+  <enableSharing>true</enableSharing>
+  <enableStreamingApi>true</enableStreamingApi>
+  <enableHistory>false</enableHistory>
+  <enableActivities>false</enableActivities>
+  <enableSearch>false</enableSearch>
+  <enableFeeds>false</enableFeeds>
+  <enableReports>true</enableReports>
+  <sharingModel>ControlledByParent</sharingModel>
+  <label>Customer Tag Assignment</label>
+  <deploymentStatus>Deployed</deploymentStatus>
+</CustomObject>

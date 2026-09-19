@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://sforce.com">
+  <fullName>Type_Text__c</fullName>
+  <label>Type as Text</label>
+  <description>Type field used as text to enable alphabetical ordering.</description>
+  <required>false</required>
+  <trackTrending>false</trackTrending>
+  <type>Text</type>
+  <formula>TEXT(Type)</formula>
+  <unique>false</unique>
+</CustomField>

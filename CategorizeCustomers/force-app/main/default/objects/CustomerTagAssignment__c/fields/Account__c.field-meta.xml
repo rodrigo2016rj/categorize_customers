@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField>
+  <fullName>Account__c</fullName>
+  <type>MasterDetail</type>
+  <inlineHelpText>Select the customer account.</inlineHelpText>
+  <description>Master-Detail relationship field that stores the reference to the parent Account.</description>
+  <label>Account</label>
+  <referenceTo>Account</referenceTo>
+  <relationshipLabel>Customer Tags</relationshipLabel>
+  <relationshipName>CustomerTagsList</relationshipName>
+  <reparentableMasterDetail>false</reparentableMasterDetail>
+  <writeRequiresMasterRead>false</writeRequiresMasterRead>
+  <securityClassification>Public</securityClassification>
+</CustomField>

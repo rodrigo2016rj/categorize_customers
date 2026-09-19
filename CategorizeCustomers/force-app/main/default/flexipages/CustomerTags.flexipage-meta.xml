@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://sforce.com">
+  <flexiPageRegions>
+    <itemInstances>
+      <componentInstance>
+        <componentName>customerTags</componentName>
+        <identifier>customerTags_Component</identifier>
+      </componentInstance>
+    </itemInstances>
+    <name>main</name>
+    <type>Region</type>
+  </flexiPageRegions>
+  <masterLabel>Customer Tags</masterLabel>
+  <template>
+    <name>flexipage:defaultAppHomeTemplate</name> 
+  </template>
+  <type>AppPage</type>
+</FlexiPage>

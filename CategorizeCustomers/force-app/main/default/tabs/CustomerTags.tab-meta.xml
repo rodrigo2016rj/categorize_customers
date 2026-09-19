@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://sforce.com">
+  <flexiPage>CustomerTags</flexiPage>
+  <label>Customer Tags</label>
+  <motif>Custom62: Chalkboard</motif>
+</CustomTab>

@@ -1,0 +1,548 @@
+<template>
+  <div lwc:ref="customer_tags_screen" class="customer_tags_screen">
+    <div class="filters_area">
+      <h2 class="title">
+        <span>Search Filters</span>
+      </h2>
+      <div class="filters_list">
+        <div class="filter tag_filter">
+          <div class="tag_filter_label_location">
+            <label class="tag_filter_label">
+              <span>Tags (separated by +)</span>
+            </label>
+          </div>
+          <div class="filter_input_location tag_filter_input_location">
+            <input type="text" class="filter_input tag_filter_input" name="tag_filter" 
+                   oninput={tag_filter_oninput_event} autocomplete="off"
+                   placeholder="Exact match"/>
+          </div>
+        </div>
+        <div class="filter owner_name_filter">
+          <div class="owner_name_filter_label_location">
+            <label class="owner_name_filter_label">
+              <span>Owner name</span>
+            </label>
+          </div>
+          <div class="filter_input_location owner_name_filter_input_location">
+            <input type="text" class="filter_input owner_name_filter_input" name="owner_name_filter" 
+                   oninput={owner_name_filter_oninput_event} autocomplete="off"
+                   placeholder="Full or partial word"/>
+          </div>
+        </div>
+        <div class="filter name_filter">
+          <div class="name_filter_label_location">
+            <label class="name_filter_label">
+              <span>Account name</span>
+            </label>
+          </div>
+          <div class="filter_input_location name_filter_input_location">
+            <input type="text" class="filter_input name_filter_input" name="name_filter" 
+                   oninput={name_filter_oninput_event} autocomplete="off"
+                   placeholder="Full or partial word"/>
+          </div>
+        </div>
+        <div class="filter type_filter">
+          <div class="type_filter_label_location">
+            <label class="type_filter_label">
+              <span>Type</span>
+            </label>
+          </div>
+          <div class="filter_select_location type_filter_select_location">
+            <select class="filter_select type_filter_select" name="type_filter" 
+                    autocomplete="off" onchange={type_filter_onchange_event}>
+              <option value="" selected="selected">All</option>
+              <template for:each={types} for:item="type">
+                <option key={type.value} value={type.value}>{type.label}</option>
+              </template>
+            </select>
+          </div>
+        </div>
+        <div class="filter annual_revenue_greater_than_filter">
+          <div class="annual_revenue_greater_than_filter_label_location">
+            <label class="annual_revenue_greater_than_filter_label">
+              <span>Annual revenue greater than</span>
+            </label>
+          </div>
+          <div class="filter_input_location annual_revenue_greater_than_filter_input_location">
+            <input type="text" class="filter_input annual_revenue_greater_than_filter_input" 
+                   name="annual_revenue_greater_than_filter" autocomplete="off" maxlength="18" 
+                   oninput={annual_revenue_greater_than_filter_oninput_event} 
+                   style={numeric_field_background}/>
+          </div>
+        </div>
+        <div class="filter annual_revenue_less_than_filter">
+          <div class="annual_revenue_less_than_filter_label_location">
+            <label class="annual_revenue_less_than_filter_label">
+              <span>Annual revenue less than</span>
+            </label>
+          </div>
+          <div class="filter_input_location annual_revenue_less_than_filter_input_location">
+            <input type="text" class="filter_input annual_revenue_less_than_filter_input" 
+                   name="annual_revenue_less_than_filter" autocomplete="off" maxlength="18" 
+                   oninput={annual_revenue_less_than_filter_oninput_event} 
+                   style={numeric_field_background}/>
+          </div>
+        </div>
+        <div class="filter rating_filter">
+          <div class="rating_filter_label_location">
+            <label class="rating_filter_label">
+              <span>Rating</span>
+            </label>
+          </div>
+          <div class="filter_select_location rating_filter_select_location">
+            <select class="filter_select rating_filter_select" name="rating_filter" 
+                    autocomplete="off" onchange={rating_filter_onchange_event}>
+              <option value="" selected="selected">All</option>
+              <template for:each={ratings} for:item="rating">
+                <option key={rating.value} value={rating.value}>{rating.label}</option>
+              </template>
+            </select>
+          </div>
+        </div>
+        <div class="filter city_filter">
+          <div class="city_filter_label_location">
+            <label class="city_filter_label">
+              <span>City</span>
+            </label>
+          </div>
+          <div class="filter_input_location city_filter_input_location">
+            <input type="text" class="filter_input city_filter_input" name="city_filter" 
+                   oninput={city_filter_oninput_event} autocomplete="off"
+                   placeholder="Full or partial word"/>
+          </div>
+        </div>
+        <div class="filter state_filter">
+          <div class="state_filter_label_location">
+            <label class="state_filter_label">
+              <span>State (abbreviation)</span>
+            </label>
+          </div>
+          <div class="filter_input_location state_filter_input_location">
+            <input type="text" class="filter_input state_filter_input" name="state_filter" 
+                   oninput={state_filter_oninput_event} autocomplete="off"
+                   placeholder="Exact match"/>
+          </div>
+        </div>
+        <div class="filter industry_filter">
+          <div class="industry_filter_label_location">
+            <label class="industry_filter_label">
+              <span>Industry</span>
+            </label>
+          </div>
+          <div class="filter_input_location industry_filter_input_location">
+            <input type="text" class="filter_input industry_filter_input" name="industry_filter" 
+                   oninput={industry_filter_oninput_event} autocomplete="off"
+                   placeholder="Full or partial word"/>
+          </div>
+        </div>
+      </div>
+      <div class="sort">
+        <div class="sort_label_location">
+          <label class="sort_label">
+            <span>Sort</span>
+          </label>
+        </div>
+        <div class="sort_select_location">
+          <select class="sort_select" name="selected_sorting_order" 
+                  autocomplete="off" onchange={sort_select_onchange_event}>
+            <option value="" selected="selected">Default</option>
+            <option value="account_name_a_z">Account Name A..Z</option>
+            <option value="account_name_z_a">Account Name Z..A</option>
+            <option value="type_a_z">Type A..Z</option>
+            <option value="type_z_a">Type Z..A</option>
+            <option value="annual_revenue_0_9">Annual Revenue 0..9</option>
+            <option value="annual_revenue_9_0">Annual Revenue 9..0</option>
+            <option value="rating_a_z">Rating A..Z</option>
+            <option value="rating_z_a">Rating Z..A</option>
+            <option value="city_a_z">City A..Z</option>
+            <option value="city_z_a">City Z..A</option>
+            <option value="state_a_z">State A..Z</option>
+            <option value="state_z_a">State Z..A</option>
+            <option value="industry_a_z">Industry A..Z</option>
+            <option value="industry_z_a">Industry Z..A</option>
+            <option value="owner_name_a_z">Owner Name A..Z</option>
+            <option value="owner_name_z_a">Owner Name Z..A</option>
+          </select>
+        </div>
+      </div>
+      <div class="records_per_page">
+        <div class="records_per_page_label_location">
+          <label class="records_per_page_label">
+            <span>Records per page</span>
+          </label>
+        </div>
+        <div class="records_per_page_select_location">
+          <select class="records_per_page_select" name="records_per_page" 
+                  autocomplete="off" onchange={records_per_page_select_onchange_event}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="5">5</option>
+            <option value="10" selected="selected">10 (Default)</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="500">500</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <template lwc:if={show_list}>
+      <div class="accounts_area">
+        <h2 class="title">
+          <span>List of Accounts</span>
+        </h2>
+        <div class="top_pagination_accounts_list">
+          <span class="previous_page_button" onclick={pagination_button_click_event} 
+                onmousedown={pagination_button_mousedown_event}>←</span>
+          <template lwc:if={show_first_page_button}>
+            <span class="first_page_button" onclick={pagination_button_click_event} 
+                  onmousedown={pagination_button_mousedown_event}>1</span>
+          </template>
+          <template lwc:if={show_first_ellipsis}>
+            <span class="hidden_pages">...</span>
+          </template>
+          <div class="pages_list">
+            <template for:each={pages} for:item="page">
+              <div class="standard_page_button" key={page.id}>
+                <template lwc:if={page.highlighted}>
+                  <span class="selected_page_button" onclick={pagination_button_click_event} 
+                        onmousedown={pagination_button_mousedown_event}>{page.number}</span>
+                </template>
+                <template lwc:else>
+                  <span class="unselected_page_button" onclick={pagination_button_click_event} 
+                        onmousedown={pagination_button_mousedown_event}>{page.number}</span>
+                </template>
+              </div>
+            </template>
+          </div>
+          <template lwc:if={show_last_ellipsis}>
+            <span class="hidden_pages">...</span>
+          </template>
+          <template lwc:if={show_last_page_button}>
+            <span class="last_page_button" onclick={pagination_button_click_event} 
+                  onmousedown={pagination_button_mousedown_event}>{last_page}</span>
+          </template>
+          <span class="next_page_button" onclick={pagination_button_click_event} 
+                onmousedown={pagination_button_mousedown_event}>→</span>
+        </div>
+        <div class="accounts_list">
+          <div class="accounts_list_header">
+            <div class="account_label">
+              <span>Account information</span>
+            </div>
+            <div class="owner_label">
+              <span>Owner</span>
+            </div>
+            <div class="tags_label">
+              <span>Tags</span>
+            </div>
+          </div>
+          <div class="accounts_list_body">
+            <template for:each={accounts} for:item="account">
+              <div class="account" key={account.id}>
+                <div class="account_information">
+                  <div class="account_information_part_one">
+                    <a class="information_account_name" href={account.url} 
+                       target="_blank">{account.name}</a>
+                  </div>
+                  <template lwc:if={account.has_information_part_two}>
+                    <div class="account_information_part_two">
+                      <template lwc:if={account.has_type}>
+                        <span class="information_account_type">{account.type}</span>
+                      </template>
+                      <template lwc:if={account.has_annual_revenue}>
+                        <span> - </span>
+                        <lightning-formatted-number class="information_account_annual_revenue" 
+                          value={account.annual_revenue} format-style="currency" 
+                          currency-code={account.currency_iso_code} currency-display-as="symbol">
+                        </lightning-formatted-number>
+                      </template>
+                      <template lwc:if={account.has_rating}>
+                        <span> - </span>
+                        <span class="information_account_rating">{account.rating}</span>
+                      </template>
+                    </div>
+                  </template>
+                  <template lwc:if={account.has_information_part_three}>
+                    <div class="account_information_part_three">
+                      <template lwc:if={account.has_website}>
+                        <lightning-formatted-url class="information_account_website" 
+                          value={account.website} label={account.website} target="_blank">
+                        </lightning-formatted-url>
+                      </template>
+                    </div>
+                  </template>
+                  <template lwc:if={account.has_information_part_four}>
+                    <div class="account_information_part_four">
+                      <template lwc:if={account.has_city_and_state}>
+                        <a class="information_account_city_and_state" 
+                           href={account.google_maps_url} target="_blank">
+                          <span class="information_account_city">{account.billing_city}</span>
+                          <span>, </span>
+                          <span class="information_account_state">{account.billing_state}</span>
+                        </a>
+                      </template>
+                      <template lwc:if={account.has_industry}>
+                        <span> - </span>
+                        <span class="information_account_industry">{account.industry}</span>
+                      </template>
+                    </div>
+                  </template>
+                  <div class="account_information_part_five">
+                    <template lwc:if={account.has_owner}>
+                      <a class="information_account_owner_name" href={account.owner_url} 
+                         target="_blank">{account.owner_name}</a>
+                    </template>
+                  </div>
+                </div>
+                <div class="account_owner">
+                  <template lwc:if={account.has_owner}>
+                    <a class="information_account_owner_name" href={account.owner_url} 
+                       target="_blank">{account.owner_name}</a>
+                  </template>
+                </div>
+                <div class="assigned_tags">
+                  <div class="show_available_tags_button_location">
+                    <div class="show_available_tags_button" data-account_id={account.id} 
+                         onclick={show_available_tags_onclick_event}>
+                      <span>+</span>
+                    </div>
+                  </div>
+                  <div class="assigned_tags_list">
+                    <template for:each={account.tags} for:item="tag">
+                      <div class="tag_location" key={tag.id}>
+                        <div class="customer_tag">
+                          <span class={tag.color} title={tag.name} 
+                                data-account_id={account.id} data-tag_id={tag.id} 
+                                onclick={show_unassign_tag_popup_onclick_event}>{tag.name}</span>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+          <div class="accounts_list_footer">
+            <div class="account_label">
+              <span>Account information</span>
+            </div>
+            <div class="owner_label">
+              <span>Owner</span>
+            </div>
+            <div class="tags_label">
+              <span>Tags</span>
+            </div>
+          </div>
+        </div>
+        <div class="bottom_pagination_accounts_list">
+          <span class="previous_page_button" onclick={pagination_button_click_event} 
+                onmousedown={pagination_button_mousedown_event}>←</span>
+          <template lwc:if={show_first_page_button}>
+            <span class="first_page_button" onclick={pagination_button_click_event} 
+                  onmousedown={pagination_button_mousedown_event}>1</span>
+          </template>
+          <template lwc:if={show_first_ellipsis}>
+            <span class="hidden_pages">...</span>
+          </template>
+          <div class="pages_list">
+            <template for:each={pages} for:item="page">
+              <div class="standard_page_button" key={page.id}>
+                <template lwc:if={page.highlighted}>
+                  <span class="selected_page_button" onclick={pagination_button_click_event} 
+                        onmousedown={pagination_button_mousedown_event}>{page.number}</span>
+                </template>
+                <template lwc:else>
+                  <span class="unselected_page_button" onclick={pagination_button_click_event} 
+                        onmousedown={pagination_button_mousedown_event}>{page.number}</span>
+                </template>
+              </div>
+            </template>
+          </div>
+          <template lwc:if={show_last_ellipsis}>
+            <span class="hidden_pages">...</span>
+          </template>
+          <template lwc:if={show_last_page_button}>
+            <span class="last_page_button" onclick={pagination_button_click_event} 
+                  onmousedown={pagination_button_mousedown_event}>{last_page}</span>
+          </template>
+          <span class="next_page_button" onclick={pagination_button_click_event} 
+                onmousedown={pagination_button_mousedown_event}>→</span>
+        </div>
+      </div>
+    </template>
+    <template lwc:else>
+      <div class="empty_list_message">
+        <span>{empty_list_message}</span>
+      </div>
+    </template>
+    <div class="tags_area">
+      <h2 class="title">
+        <span>Customer Tags</span>
+      </h2>
+      <div class="new_tag_button" onclick={new_tag_button_onclick_event}>
+        <span>+</span>
+      </div>
+      <div class="tags_list">
+        <template for:each={tags} for:item="tag">
+          <div class="tag_location" key={tag.id}>
+            <div class="customer_tag">
+              <span class={tag.color} title={tag.name} data-tag_id={tag.id} 
+                    onclick={show_delete_tag_popup_onclick_event}>{tag.name}</span>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+    <template lwc:if={show_available_tags_popup}>
+      <div class="popup available_tags_popup" onclick={available_tags_popup_onclick_event}>
+        <div class="button_close_popup" onclick={button_close_available_tags_popup_onclick_event}>
+          <span>X</span>
+        </div>
+        <h3 class="title">
+          <span>Assign Tag</span>
+        </h3>
+        <div class="assign_tag_instructions">
+          <span>Click the tag you want to assign to the {selected_account_name} account.</span>
+        </div>
+        <div class="available_tags_list">
+          <template for:each={tags_in_popup} for:item="tag">
+            <div class="tag_location" key={tag.id} data-tag_id={tag.id} 
+                 onclick={assign_tag_onclick_event}>
+              <div class="customer_tag">
+                <span class={tag.color} title={tag.name}>{tag.name}</span>
+              </div>
+            </div>
+          </template>
+        </div>
+        <template lwc:if={show_assign_tag_message}>
+          <div class="assign_tag_message_location">
+            <span>{assign_tag_message}</span>
+          </div>
+        </template>
+        <div class="available_tags_popup_buttons">
+          <button type="button" class="button" 
+                  onmouseleave={cancel_assign_tag_button_onmouseleave_event} 
+                  onclick={cancel_assign_tag_button_onclick_event}>Cancel</button>
+        </div>
+      </div>
+    </template>
+    <template lwc:if={show_unassign_tag_popup}>
+      <div class="popup unassign_tag_popup" onclick={unassign_tag_popup_onclick_event}>
+        <div class="button_close_popup" onclick={button_close_unassign_tag_popup_onclick_event}>
+          <span>X</span>
+        </div>
+        <h3 class="title">
+          <span>Unassign Tag</span>
+        </h3>
+        <div class="unassign_tag_confirmation">
+          <span>Remove tag from {selected_account_name} account?</span>
+        </div>
+        <div class="tag_to_be_unassign_location">
+          <span class="customer_tag tag_to_be_unassign">
+            <span class={selected_tag_color}>{selected_tag_name}</span>
+          </span>
+        </div>
+        <template lwc:if={show_unassign_tag_message}>
+          <div class="unassign_tag_message_location">
+            <span>{unassign_tag_message}</span>
+          </div>
+        </template>
+        <div class="unassign_tag_popup_buttons">
+          <button type="button" class="button" 
+                  onmouseleave={unassign_tag_button_onmouseleave_event} 
+                  onclick={unassign_tag_button_onclick_event}>Unassign</button>
+          <button type="button" class="button" 
+                  onmouseleave={cancel_unassign_tag_button_onmouseleave_event} 
+                  onclick={cancel_unassign_tag_button_onclick_event}>Cancel</button>
+        </div>
+      </div>
+    </template>
+    <template lwc:if={show_new_tag_popup}>
+      <div class="popup new_tag_popup" onclick={new_tag_popup_onclick_event}>
+        <div class="button_close_popup" onclick={button_close_new_tag_popup_onclick_event}>
+          <span>X</span>
+        </div>
+        <h3 class="title">
+          <span>Add the New Tag</span>
+        </h3>
+        <div class="field tag_name">
+          <div class="tag_name_label_location">
+            <label class="tag_name_label">
+              <span>Name</span>
+            </label>
+          </div>
+          <div class="tag_name_input_location">
+            <input type="text" class="tag_name_input" name="name_field" autocomplete="off" 
+                   oninput={tag_name_oninput_event}/>
+          </div>
+        </div>
+        <div class="field tag_color">
+          <div class="tag_color_label_location">
+            <label class="tag_color_label">
+              <span>Color</span>
+            </label>
+          </div>
+          <div class="tag_color_select_location">
+            <select class="tag_color_select" name="color_field" autocomplete="off" 
+                    onchange={tag_color_onchange_event}>
+              <option value="">Select</option>
+              <template for:each={colors} for:item="color">
+                <option key={color.value} value={color.value}>{color.label}</option>
+              </template>
+            </select>
+          </div>
+        </div>
+        <template lwc:if={show_preview_tag}>
+          <div class="preview_tag_location">
+            <span class="customer_tag preview_tag">
+              <span class={tag_color}>{tag_name}</span>
+            </span>
+          </div>
+        </template>
+        <template lwc:if={show_new_tag_message}>
+          <div class="new_tag_message_location">
+            <span>{new_tag_message}</span>
+          </div>
+        </template>
+        <div class="new_tag_popup_buttons">
+          <button type="button" class="button" 
+                  onmouseleave={add_tag_button_onmouseleave_event} 
+                  onclick={add_tag_button_onclick_event}>Add</button>
+        </div>
+      </div>
+    </template>
+    <template lwc:if={show_delete_tag_popup}>
+      <div class="popup delete_tag_popup" onclick={delete_tag_popup_onclick_event}>
+        <div class="button_close_popup" onclick={button_close_delete_tag_popup_onclick_event}>
+          <span>X</span>
+        </div>
+        <h3 class="title">
+          <span>Delete Tag</span>
+        </h3>
+        <div class="delete_tag_confirmation">
+          <span>Are you sure you want to delete the tag?</span>
+        </div>
+        <div class="tag_to_be_deleted_location">
+          <span class="customer_tag tag_to_be_deleted">
+            <span class={selected_tag_color}>{selected_tag_name}</span>
+          </span>
+        </div>
+        <template lwc:if={show_delete_tag_message}>
+          <div class="delete_tag_message_location">
+            <span>{delete_tag_message}</span>
+          </div>
+        </template>
+        <div class="delete_tag_popup_buttons">
+          <button type="button" class="button" 
+                  onmouseleave={delete_tag_button_onmouseleave_event} 
+                  onclick={delete_tag_button_onclick_event}>Delete</button>
+          <button type="button" class="button" 
+                  onmouseleave={cancel_delete_tag_button_onmouseleave_event} 
+                  onclick={cancel_delete_tag_button_onclick_event}>Cancel</button>
+        </div>
+      </div>
+    </template>
+  </div>
+</template>
