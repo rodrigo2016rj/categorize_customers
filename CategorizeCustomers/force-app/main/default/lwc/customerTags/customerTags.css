@@ -395,6 +395,7 @@ h3.title{
   width: calc(50% - 18px * 2 / 3);
   max-width: calc(50% - 18px * 2 / 3);
   word-wrap: break-word;
+  word-break: break-all;
 }
 @media(max-width: 1240px){
   .account_information{

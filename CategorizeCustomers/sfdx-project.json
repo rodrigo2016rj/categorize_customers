@@ -1,8 +1,8 @@
 {
   "packageDirectories": [
     {
-      "versionName": "Version 2026.1",
-      "versionNumber": "1.0.0.NEXT",
+      "versionName": "Version 2026.2",
+      "versionNumber": "2.0.0.NEXT",
       "path": "force-app",
       "default": true,
       "package": "CategorizeCustomers",
@@ -15,6 +15,7 @@
   "sourceApiVersion": "67.0",
   "packageAliases": {
     "CategorizeCustomers": "0HogK0000004gqHSAQ",
-    "CategorizeCustomers@1.0.0-1": "04tgK000000MdsLQAS"
+    "CategorizeCustomers@1.0.0-1": "04tgK000000MdsLQAS",
+    "CategorizeCustomers@2.0.0-1": "04tgK000000N3MzQAK"
   }
 }

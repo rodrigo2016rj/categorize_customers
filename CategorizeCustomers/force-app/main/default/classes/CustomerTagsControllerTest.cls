@@ -11,7 +11,6 @@ private class CustomerTagsControllerTest{
       Type = 'Customer',
       Rating = 'Cold',
       Website = 'https://fictitious001.com',
-      BillingState = 'SP',
       BillingCity = 'São Paulo',
       Industry = 'Advertising',
       AnnualRevenue = 20000000L
@@ -23,7 +22,6 @@ private class CustomerTagsControllerTest{
       Type = 'Customer',
       Rating = 'Warm',
       Website = 'https://fictitious002.com',
-      BillingState = 'BS',
       BillingCity = 'Busan',
       Industry = 'Aerospace',
       AnnualRevenue = 500000000L
@@ -35,7 +33,6 @@ private class CustomerTagsControllerTest{
       Type = 'Customer',
       Rating = 'Hot',
       Website = 'https://fictitious003.com',
-      BillingState = 'MA',
       BillingCity = 'Cracóvia',
       Industry = 'Agribusiness',
       AnnualRevenue = 300000000L
@@ -47,7 +44,6 @@ private class CustomerTagsControllerTest{
       Type = 'Customer',
       Rating = 'Cold',
       Website = 'https://fictitious004.com',
-      BillingState = 'DF',
       BillingCity = 'Buenos Aires',
       Industry = 'Analytics',
       AnnualRevenue = 150000000L
@@ -59,7 +55,6 @@ private class CustomerTagsControllerTest{
       Type = 'Customer',
       Rating = 'Warm',
       Website = 'https://fictitious005.com',
-      BillingState = 'WI',
       BillingCity = 'Viena',
       Industry = 'Architecture',
       AnnualRevenue = 25000000L
@@ -71,7 +66,6 @@ private class CustomerTagsControllerTest{
       Type = 'Customer',
       Rating = 'Hot',
       Website = 'https://fictitious006.com',
-      BillingState = 'NY',
       BillingCity = 'Nova York',
       Industry = 'Asset Management',
       AnnualRevenue = 300000000L
@@ -83,7 +77,6 @@ private class CustomerTagsControllerTest{
       Type = 'Customer',
       Rating = 'Cold',
       Website = 'https://fictitious007.com',
-      BillingState = 'SP',
       BillingCity = 'São Paulo',
       Industry = 'Audit',
       AnnualRevenue = 200000000L
@@ -95,7 +88,6 @@ private class CustomerTagsControllerTest{
       Type = 'Customer',
       Rating = 'Warm',
       Website = 'https://fictitious008.com',
-      BillingState = 'TY',
       BillingCity = 'Tóquio',
       Industry = 'Automation',
       AnnualRevenue = 250000000L
@@ -107,7 +99,6 @@ private class CustomerTagsControllerTest{
       Type = 'Customer',
       Rating = 'Hot',
       Website = 'https://fictitious009.com',
-      BillingState = 'NY',
       BillingCity = 'Nova York',
       Industry = 'Automotive',
       AnnualRevenue = 1000000000L
@@ -119,7 +110,6 @@ private class CustomerTagsControllerTest{
       Type = 'Investor',
       Rating = 'Cold',
       Website = 'https://fictitious010.com',
-      BillingState = 'C',
       BillingCity = 'Cairo',
       Industry = 'Banking',
       AnnualRevenue = 3000000000L
@@ -201,10 +191,10 @@ private class CustomerTagsControllerTest{
   
   @isTest
   static void test_aura_show_accounts_001(){
-    CustomerTagsController.Filters filters = new CustomerTagsController.Filters();
+    Filters filters = new Filters();
     
     Test.startTest();
-    CustomerTagsController.AccountsResult result = CustomerTagsController.aura_show_accounts(
+    AccountsResult result = CustomerTagsController.aura_show_accounts(
       filters, 
       'account_name_a_z',
       1,
@@ -235,11 +225,11 @@ private class CustomerTagsControllerTest{
   
   @isTest
   static void test_aura_show_accounts_002(){
-    CustomerTagsController.Filters filters = new CustomerTagsController.Filters();
+    Filters filters = new Filters();
     filters.name_filter = 'Auto';
     
     Test.startTest();
-    CustomerTagsController.AccountsResult result = CustomerTagsController.aura_show_accounts(
+    AccountsResult result = CustomerTagsController.aura_show_accounts(
       filters, 
       'account_name_a_z',
       1,
@@ -270,11 +260,11 @@ private class CustomerTagsControllerTest{
   
   @isTest
   static void test_aura_show_accounts_003(){
-    CustomerTagsController.Filters filters = new CustomerTagsController.Filters();
+    Filters filters = new Filters();
     filters.city_filter = 'São Paulo';
     
     Test.startTest();
-    CustomerTagsController.AccountsResult result = CustomerTagsController.aura_show_accounts(
+    AccountsResult result = CustomerTagsController.aura_show_accounts(
       filters, 
       'account_name_z_a',
       1,
@@ -305,11 +295,11 @@ private class CustomerTagsControllerTest{
   
   @isTest
   static void test_aura_show_accounts_004(){
-    CustomerTagsController.Filters filters = new CustomerTagsController.Filters();
+    Filters filters = new Filters();
     filters.tag_filter = 'Tag 005';
     
     Test.startTest();
-    CustomerTagsController.AccountsResult result = CustomerTagsController.aura_show_accounts(
+    AccountsResult result = CustomerTagsController.aura_show_accounts(
       filters, 
       'account_name_a_z',
       1,
@@ -340,7 +330,7 @@ private class CustomerTagsControllerTest{
   
   @isTest
   static void test_aura_show_accounts_005(){
-    CustomerTagsController.Filters filters = new CustomerTagsController.Filters();
+    Filters filters = new Filters();
     List<String> orders = new List<String>{
       'account_name_a_z', 'account_name_z_a', 'type_a_z', 'type_z_a', 'annual_revenue_0_9', 
       'annual_revenue_9_0', 'rating_a_z', 'rating_z_a', 'city_a_z', 'city_z_a', 'state_a_z', 
@@ -362,7 +352,7 @@ private class CustomerTagsControllerTest{
     Account account = [SELECT Id FROM Account LIMIT 1];
     
     Test.startTest();
-    CustomerTagsController.AvailableTagsResult result = CustomerTagsController.aura_show_available_tags(account.Id);
+    AvailableTagsResult result = CustomerTagsController.aura_show_available_tags(account.Id);
     Test.stopTest();
     
     String message = 'The result of available tags should not be null.';
@@ -392,7 +382,7 @@ private class CustomerTagsControllerTest{
     CustomerTag__c tag = [SELECT Id FROM CustomerTag__c LIMIT 1];
     
     Test.startTest();
-    CustomerTagsController.TagToBeUnassignResult result = CustomerTagsController.aura_show_tag_to_be_unassign(account.Id, tag.Id);
+    TagToBeUnassignResult result = CustomerTagsController.aura_show_tag_to_be_unassign(account.Id, tag.Id);
     Test.stopTest();
     
     String message = 'The return value should not be null.';
@@ -417,7 +407,7 @@ private class CustomerTagsControllerTest{
   @isTest
   static void test_aura_show_tags(){
     Test.startTest();
-    CustomerTagsController.TagsResult result = CustomerTagsController.aura_show_tags();
+    TagsResult result = CustomerTagsController.aura_show_tags();
     Test.stopTest();
     
     String message = 'The result of listing tags should not be null.';
@@ -445,7 +435,7 @@ private class CustomerTagsControllerTest{
     CustomerTag__c tag = [SELECT Id FROM CustomerTag__c LIMIT 1];
     
     Test.startTest();
-    CustomerTagsController.TagToBeDeletedResult result = CustomerTagsController.aura_show_tag_to_be_deleted(tag.Id);
+    TagToBeDeletedResult result = CustomerTagsController.aura_show_tag_to_be_deleted(tag.Id);
     Test.stopTest();
     
     String message = 'The result of the tag search for deletion should not be null.';

@@ -22,11 +22,11 @@ https://trailhead.salesforce.com</p>
 <p>Crie uma conta de desenvolvedor no Salesforce, caso não tenha uma.<br/>
 https://www.salesforce.com/products/free-trial/developer</p>
 
-<p>Instale o Salesforce CLI (Salesforce Comand Line Interface).<br/>
+<p>Instale o Salesforce CLI (Salesforce Command Line Interface).<br/>
 https://developer.salesforce.com/tools/salesforcecli</p>
 
 ## Instruções para ambiente de desenvolvimento
-<p>Utilize o terminal (para este caso eu recomendo o WindowsPowerShell) dentro da pasta CategorizeCustomers deste projeto.</p>
+<p>Utilize o terminal (para este caso eu recomendo o WindowsPowerShell) dentro da pasta "CategorizeCustomers" deste projeto.</p>
 
 <p>Para visualizar o resultado no seu navegador, execute os comandos:</p>
 <ul>
@@ -41,6 +41,17 @@ https://developer.salesforce.com/tools/salesforcecli</p>
 <p>Para implantar (deploy), execute o comando:</p>
 <ul>
 <li>sf project deploy start</li>
+</ul>
+
+## Dicas para ambiente de desenvolvimento
+<p>Utilize o terminal (para este caso eu recomendo o WindowsPowerShell) dentro da pasta "Dados para Testes" deste projeto.</p>
+
+<p>Execute os comandos abaixo para deixar apenas com as contas (accounts) de teste:</p>
+<ul>
+<li>sf apex run --file "Deletar Entitlements e Accounts.apex" -o rds_scratch_org</li>
+<li>sf apex run --file "Inserir Usuários Fictícios.apex" -o rds_scratch_org</li>
+<li>sf apex run --file "Inserir Contas Fictícias - Parte 01.apex" -o rds_scratch_org</li>
+<li>sf apex run --file "Inserir Contas Fictícias - Parte 02.apex" -o rds_scratch_org</li>
 </ul>
 
 <br/>
