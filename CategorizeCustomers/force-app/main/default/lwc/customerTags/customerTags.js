@@ -84,7 +84,7 @@ export default class AccountsList extends NavigationMixin(LightningElement){
     this.show_accounts();
     this.show_tags();
   }
-  disconnectedCallback() {
+  disconnectedCallback(){
     window.removeEventListener("click", this.window_event_click);
     window.removeEventListener("resize", this.window_event_resize);
     window.removeEventListener("scroll", this.window_event_scroll);

@@ -1,4 +1,4 @@
-public without sharing class PostInstallScript implements InstallHandler{
+public inherited sharing class PostInstallScript implements InstallHandler{
   public void onInstall(InstallContext context){
     if(context.isUpgrade() == false){
       try{

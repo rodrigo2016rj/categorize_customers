@@ -174,9 +174,8 @@ Integer current_page, Integer records_per_page){
     
     String query = 'SELECT Id, Name, Type, AnnualRevenue, Rating, Website, BillingCity';
     query += ', BillingState, Industry, Owner.Id, Owner.Name, (SELECT rodrigo__CustomerTag__r.Id';
-    query += ', rodrigo__CustomerTag__r.Name, rodrigo__CustomerTag__r.rodrigo__Color__c FROM rodrigo__CustomerTagsList__r';
-    query += ' ORDER BY rodrigo__CustomerTag__r.Name) FROM Account';
-    
+    query += ', rodrigo__CustomerTag__r.Name, rodrigo__CustomerTag__r.rodrigo__Color__c FROM';
+    query += ' rodrigo__CustomerTagsList__r ORDER BY rodrigo__CustomerTag__r.Name) FROM Account';
     if(filter_query != ''){
       query += filter_query;
     }
@@ -327,8 +326,8 @@ Integer current_page, Integer records_per_page){
     }
     
     //Select Assign
-    query = 'SELECT Id FROM rodrigo__CustomerTagAssignment__c WHERE rodrigo__Account__c = :account_id';
-    query += ' AND rodrigo__CustomerTag__c = :tag_id LIMIT 1';
+    query = 'SELECT Id FROM rodrigo__CustomerTagAssignment__c WHERE rodrigo__Account__c';
+    query += ' = :account_id AND rodrigo__CustomerTag__c = :tag_id LIMIT 1';
     try{
       assign = Database.query(query, AccessLevel.USER_MODE);
     }catch(Exception error){
@@ -401,8 +400,8 @@ Integer current_page, Integer records_per_page){
     CustomerTagAssignment__c assign = new CustomerTagAssignment__c();
     
     //Select Assign
-    String query = 'SELECT Id FROM rodrigo__CustomerTagAssignment__c WHERE rodrigo__Account__c = :account_id';
-    query += ' AND rodrigo__CustomerTag__c = :tag_id LIMIT 1';
+    String query = 'SELECT Id FROM rodrigo__CustomerTagAssignment__c WHERE rodrigo__Account__c';
+    query += ' = :account_id AND rodrigo__CustomerTag__c = :tag_id LIMIT 1';
     try{
       assign = Database.query(query, AccessLevel.USER_MODE);
     }catch(Exception error){
@@ -429,7 +428,8 @@ Integer current_page, Integer records_per_page){
     result.colors = apex_get_colors();
     result.tags = new List<CustomerTag__c>();
     
-    String query = 'SELECT Id, Name, rodrigo__Color__c FROM rodrigo__CustomerTag__c ORDER BY Name ASC LIMIT 100';
+    String query = 'SELECT Id, Name, rodrigo__Color__c FROM rodrigo__CustomerTag__c';
+    query += ' ORDER BY Name ASC LIMIT 100';
     try{
       result.tags = Database.query(query, AccessLevel.USER_MODE);
     }catch(Exception error){
@@ -524,7 +524,8 @@ Integer current_page, Integer records_per_page){
     result.tag_name = '';
     result.tag_color = '';
     
-    String query = 'SELECT Id, Name, rodrigo__Color__c FROM rodrigo__CustomerTag__c WHERE Id = :tag_id';
+    String query = 'SELECT Id, Name, rodrigo__Color__c FROM rodrigo__CustomerTag__c';
+    query += ' WHERE Id = :tag_id';
     try{
       List<CustomerTag__c> tags = (List<CustomerTag__c>) Database.query(query, AccessLevel.USER_MODE);
       
@@ -544,7 +545,8 @@ Integer current_page, Integer records_per_page){
   public static String aura_delete_tag(String tag_id){
     //Select Assigns
     List<CustomerTagAssignment__c> assigns = new List<CustomerTagAssignment__c>();
-    String query = 'SELECT Id FROM rodrigo__CustomerTagAssignment__c WHERE rodrigo__CustomerTag__c = :tag_id';
+    String query = 'SELECT Id FROM rodrigo__CustomerTagAssignment__c';
+    query += ' WHERE rodrigo__CustomerTag__c = :tag_id';
     try{
       assigns = Database.query(query, AccessLevel.USER_MODE);
     }catch(Exception error){
