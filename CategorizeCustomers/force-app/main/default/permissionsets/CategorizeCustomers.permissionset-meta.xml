@@ -14,6 +14,37 @@
     <visibility>Visible</visibility>
   </tabSettings>
   
+  <classAccesses>
+    <apexClass>CustomerTagsController</apexClass>
+    <enabled>true</enabled>
+  </classAccesses>
+  
+  <objectPermissions>
+    <allowCreate>true</allowCreate>
+    <allowDelete>true</allowDelete>
+    <allowEdit>true</allowEdit>
+    <allowRead>true</allowRead>
+    <modifyAllRecords>false</modifyAllRecords>
+    <object>CustomerTagAssignment__c</object>
+    <viewAllRecords>true</viewAllRecords>
+  </objectPermissions>
+  
+  <objectPermissions>
+    <allowCreate>true</allowCreate>
+    <allowDelete>true</allowDelete>
+    <allowEdit>true</allowEdit>
+    <allowRead>true</allowRead>
+    <modifyAllRecords>false</modifyAllRecords>
+    <object>CustomerTag__c</object>
+    <viewAllRecords>true</viewAllRecords>
+  </objectPermissions>
+  
+  <fieldPermissions>
+    <editable>false</editable>
+    <field>Account.AnnualRevenue</field>
+    <readable>true</readable>
+  </fieldPermissions>
+  
   <fieldPermissions>
     <editable>false</editable>
     <field>Account.Rating</field>
@@ -22,7 +53,7 @@
   
   <fieldPermissions>
     <editable>false</editable>
-    <field>Account.Industry_Text__c</field>
+    <field>Account.Type_Text__c</field>
     <readable>true</readable>
   </fieldPermissions>
   
@@ -34,7 +65,7 @@
   
   <fieldPermissions>
     <editable>false</editable>
-    <field>Account.Type_Text__c</field>
+    <field>Account.Industry_Text__c</field>
     <readable>true</readable>
   </fieldPermissions>
 </PermissionSet>

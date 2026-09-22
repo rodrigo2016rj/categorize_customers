@@ -35,6 +35,7 @@ https://developer.salesforce.com/tools/salesforcecli</p>
 <li>sf org login web --alias scratch_org</li>
 <li>sf org list</li>
 <li>sf project deploy start</li>
+<li>sf org assign permset --name CategorizeCustomers</li>
 <li>sf org open</li>
 </ul>
 

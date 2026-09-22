@@ -1,4 +1,4 @@
-public class PostInstallScript implements InstallHandler{
+public without sharing class PostInstallScript implements InstallHandler{
   public void onInstall(InstallContext context){
     if(context.isUpgrade() == false){
       try{
@@ -9,10 +9,15 @@ public class PostInstallScript implements InstallHandler{
           AssigneeId = installer_id,
           PermissionSetId = permission_set.Id
         );
-        
-        insert assignment;
+        if(Schema.sObjectType.PermissionSetAssignment.isCreateable() 
+           && Schema.sObjectType.PermissionSetAssignment.fields.AssigneeId.isCreateable() 
+           && Schema.sObjectType.PermissionSetAssignment.fields.PermissionSetId.isCreateable()){
+          insert assignment;
+        }else{
+          System.debug('Install Error 001: Insufficient permissions to create PermissionSetAssignment.');
+        }
       }catch(Exception error){
-        System.debug('Install Error 001: ' + error.getMessage());
+        System.debug('Install Error 002: ' + error.getMessage());
       }
     }
   }

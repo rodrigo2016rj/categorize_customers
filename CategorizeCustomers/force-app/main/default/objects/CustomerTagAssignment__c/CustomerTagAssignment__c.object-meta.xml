@@ -16,7 +16,7 @@
   <enableSearch>false</enableSearch>
   <enableFeeds>false</enableFeeds>
   <enableReports>true</enableReports>
-  <sharingModel>ControlledByParent</sharingModel>
+  <sharingModel>ReadWrite</sharingModel>
   <label>Customer Tag Assignment</label>
   <deploymentStatus>Deployed</deploymentStatus>
 </CustomObject>

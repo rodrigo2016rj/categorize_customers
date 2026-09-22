@@ -1,6 +1,6 @@
 public with sharing class CustomerTagsController{
   //Show Accounts
-  @AuraEnabled
+  @AuraEnabled(cacheable=false)
   public static AccountsResult aura_show_accounts(Filters filters, String selected_sorting_order, 
 Integer current_page, Integer records_per_page){
     //Filters
@@ -298,6 +298,12 @@ Integer current_page, Integer records_per_page){
   //Assign Tag
   @AuraEnabled
   public static String aura_assign_tag(String account_id, String tag_id){
+    if(!Schema.sObjectType.CustomerTagAssignment__c.isCreateable() 
+       || !Schema.sObjectType.CustomerTagAssignment__c.fields.Account__c.isCreateable() 
+       || !Schema.sObjectType.CustomerTagAssignment__c.fields.CustomerTag__c.isCreateable()){
+      return 'You do not have permissions to assign tag.';
+    }
+    
     Account account = new Account();
     CustomerTag__c tag = new CustomerTag__c();
     CustomerTagAssignment__c assign = null;
@@ -388,6 +394,10 @@ Integer current_page, Integer records_per_page){
   
   @AuraEnabled
   public static String aura_unassign_tag(String account_id, String tag_id){
+    if(!Schema.sObjectType.CustomerTagAssignment__c.isDeletable()){
+      return 'You do not have permission to unassign tag.';
+    }
+    
     CustomerTagAssignment__c assign = new CustomerTagAssignment__c();
     
     //Select Assign
@@ -450,6 +460,12 @@ Integer current_page, Integer records_per_page){
   //New Tag
   @AuraEnabled
   public static String aura_add_new_tag(String tag_name, String tag_color){
+    if(!Schema.sObjectType.CustomerTag__c.isCreateable() 
+       || !Schema.sObjectType.CustomerTag__c.fields.Name.isCreateable() 
+       || !Schema.sObjectType.CustomerTag__c.fields.Color__c.isCreateable()){
+      return 'You do not have permissions to create tag.';
+    }
+    
     //Validations
     tag_name = (tag_name ?? '').trim();
     if(tag_name == null || tag_name == ''){
