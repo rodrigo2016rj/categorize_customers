@@ -58,6 +58,7 @@ h3.title{
   min-width: 282px;
   max-width: 282px;
   min-height: 935px;
+  max-height: 935px;
   background-color: #FFF;
   font-size: 12pt;
 }
@@ -598,6 +599,7 @@ h3.title{
   min-width: 282px;
   max-width: 282px;
   min-height: 935px;
+  max-height: 935px;
   background-color: #FFF;
   font-size: 12pt;
 }
@@ -693,6 +695,9 @@ h3.title{
 .assign_tag_instructions{
   margin-top: 20px;
 }
+.assign_tag_instructions>.highlighted_text{
+  text-shadow: 1px 0px 0px #02254A;
+}
 .available_tags_list{
   margin-top: 10px;
   font-size: 12pt;
@@ -727,6 +732,9 @@ h3.title{
 }
 .unassign_tag_confirmation{
   margin-top: 20px;
+}
+.unassign_tag_confirmation>.highlighted_text{
+  text-shadow: 1px 0px 0px #02254A;
 }
 .tag_to_be_unassign_location{
   margin-top: 10px;

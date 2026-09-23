@@ -1,8 +1,8 @@
 {
   "packageDirectories": [
     {
-      "versionName": "Version 2026.5",
-      "versionNumber": "5.0.0.NEXT",
+      "versionName": "Version 2026.6",
+      "versionNumber": "6.0.0.NEXT",
       "path": "force-app",
       "default": true,
       "package": "CategorizeCustomers",
@@ -19,6 +19,7 @@
     "CategorizeCustomers@2.0.0-1": "04tgK000000N3MzQAK",
     "CategorizeCustomers@3.0.0-1": "04tgK000000NEiDQAW",
     "CategorizeCustomers@4.0.0-1": "04tgK000000NsfdQAC",
-    "CategorizeCustomers@5.0.0-1": "04tgK000000NvLlQAK"
+    "CategorizeCustomers@5.0.0-1": "04tgK000000NvLlQAK",
+    "CategorizeCustomers@6.0.0-1": "04tgK000000OBn7QAG"
   }
 }

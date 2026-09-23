@@ -404,7 +404,9 @@
           <span>Assign Tag</span>
         </h3>
         <div class="assign_tag_instructions">
-          <span>Click the tag you want to assign to the {selected_account_name} account.</span>
+          <span>Click the tag you want to assign to the </span>
+          <span class="highlighted_text">{selected_account_name} </span>
+          <span>account.</span>
         </div>
         <div class="available_tags_list">
           <template for:each={tags_in_popup} for:item="tag">
@@ -437,7 +439,9 @@
           <span>Unassign Tag</span>
         </h3>
         <div class="unassign_tag_confirmation">
-          <span>Remove tag from {selected_account_name} account?</span>
+          <span>Remove tag from </span>
+          <span class="highlighted_text">{selected_account_name} </span>
+          <span>account?</span>
         </div>
         <div class="tag_to_be_unassign_location">
           <span class="customer_tag tag_to_be_unassign">
