@@ -1,9 +1,9 @@
 {
   "packageDirectories": [
     {
-      "versionName": "Version 2026.7",
-      "versionNumber": "7.0.0.NEXT",
-      "ancestorId": "CategorizeCustomers@6.0.0-1",
+      "versionName": "Version 2026.8",
+      "versionNumber": "8.0.0.NEXT",
+      "ancestorId": "CategorizeCustomers@7.0.0-2",
       "path": "force-app",
       "default": true,
       "package": "CategorizeCustomers",
@@ -22,6 +22,8 @@
     "CategorizeCustomers@4.0.0-1": "04tgK000000NsfdQAC",
     "CategorizeCustomers@5.0.0-1": "04tgK000000NvLlQAK",
     "CategorizeCustomers@6.0.0-1": "04tgK000000OBn7QAG",
-    "CategorizeCustomers@7.0.0-2": "04tgK000000TEZ3QAO"
+    "CategorizeCustomers@7.0.0-1": "04tgK000000TC0zQAG",
+    "CategorizeCustomers@7.0.0-2": "04tgK000000TEZ3QAO",
+    "CategorizeCustomers@8.0.0-1": "04tgK000000TO6zQAG"
   }
 }

@@ -1,19 +1,23 @@
 @isTest
 private class PostInstallScriptTest{
   
-  @isTest
-  static void testInstallScriptSuccess() {
+  @isTest(SeeAllData=true)
+  static void testInstallScriptSuccess(){
     PostInstallScript postInstall = new PostInstallScript();
     
     Test.startTest();
     Test.testInstall(postInstall, null, false);
+    
+    Id real_ps_id = [SELECT Id FROM PermissionSet WHERE Name = 'CategorizeCustomers' LIMIT 1].Id;
+    
+    PostInstallScript.setupStandardFieldPermissions(real_ps_id);
     Test.stopTest();
     
-    Assert.isTrue(true, 'The post-installation script was executed without submitting any proposals.');
+    Assert.isTrue(true, 'The post-installation script was executed successfully.');
   }
   
-  @isTest
-  static void testInstallScriptUpgrade() {
+  @isTest(SeeAllData=true)
+  static void testInstallScriptUpgrade(){
     PostInstallScript postInstall = new PostInstallScript();
     
     Test.startTest();
