@@ -41,6 +41,12 @@
   
   <fieldPermissions>
     <editable>false</editable>
+    <field>Account.Type</field>
+    <readable>true</readable>
+  </fieldPermissions>
+  
+  <fieldPermissions>
+    <editable>false</editable>
     <field>Account.AnnualRevenue</field>
     <readable>true</readable>
   </fieldPermissions>
@@ -48,6 +54,18 @@
   <fieldPermissions>
     <editable>false</editable>
     <field>Account.Rating</field>
+    <readable>true</readable>
+  </fieldPermissions>
+  
+  <fieldPermissions>
+    <editable>false</editable>
+    <field>Account.Website</field>
+    <readable>true</readable>
+  </fieldPermissions>
+  
+  <fieldPermissions>
+    <editable>false</editable>
+    <field>Account.Industry</field>
     <readable>true</readable>
   </fieldPermissions>
   
